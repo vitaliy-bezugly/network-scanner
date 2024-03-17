@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About.Text" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Avancé</value>
+  </data>
+  <data name="All.Text" xml:space="preserve">
+    <value>Tout</value>
+  </data>
+  <data name="ApiKeyPb.PlaceholderText" xml:space="preserve">
+    <value>Clé API</value>
+  </data>
+  <data name="CanceledException" xml:space="preserve">
+    <value>L’opération a été annulée</value>
+  </data>
+  <data name="CancelToolTip.Content" xml:space="preserve">
+    <value>Annuler !</value>
+  </data>
+  <data name="ChangeMAC.Text" xml:space="preserve">
+    <value>Modifier l'adresse MAC</value>
+  </data>
+  <data name="CheckForUpdates.Text" xml:space="preserve">
+    <value>Vérifiez les mises à jour</value>
+  </data>
+  <data name="ClearScannedItems.Content" xml:space="preserve">
+    <value>Effacer les éléments numérisés !</value>
+  </data>
+  <data name="Collapse.Content" xml:space="preserve">
+    <value>Réduire tout</value>
+  </data>
+  <data name="CollapseAll.Text" xml:space="preserve">
+    <value>Réduire tout</value>
+  </data>
+  <data name="ColorTheme.Content" xml:space="preserve">
+    <value>Couleur du thème</value>
+  </data>
+  <data name="Comments.Header" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="CommentsDetails.Text" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="Community.Text" xml:space="preserve">
+    <value>Communauté</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>Connecté !</value>
+  </data>
+  <data name="Contents.Text" xml:space="preserve">
+    <value>Sommaire</value>
+  </data>
+  <data name="Copy.Text" xml:space="preserve">
+    <value>Copier!</value>
+  </data>
+  <data name="CopyMACAddress.Text" xml:space="preserve">
+    <value>Adresse MAC</value>
+  </data>
+  <data name="CopyManufacturer.Text" xml:space="preserve">
+    <value>Fabricant</value>
+  </data>
+  <data name="CopyName.Text" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="CorruptedMessage" xml:space="preserve">
+    <value>Le fichier est corrompu. Veuillez le supprimer et réessayer. !</value>
+  </data>
+  <data name="CreateReport.Content" xml:space="preserve">
+    <value>Créez un rapport à l'aide de Gpt Api !</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="Date.Text" xml:space="preserve">
+    <value>Rencontez-vous</value>
+  </data>
+  <data name="DateDataGrid.Header" xml:space="preserve">
+    <value>Rencontez-vous</value>
+  </data>
+  <data name="DateTimeTimeZone.Content" xml:space="preserve">
+    <value>Zone Date / Heure</value>
+  </data>
+  <data name="Dead" xml:space="preserve">
+    <value>mort</value>
+  </data>
+  <data name="Default.Content" xml:space="preserve">
+    <value>Défaut</value>
+  </data>
+  <data name="Details.Text" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="DontChange.Text" xml:space="preserve">
+    <value>Ne modifiez pas cette valeur à moins d'en être sûr. !</value>
+  </data>
+  <data name="DownloadRadmin.Text" xml:space="preserve">
+    <value>Téléchargez Radmin Viewer !</value>
+  </data>
+  <data name="EditComment.Text" xml:space="preserve">
+    <value>Modifier le commentaire</value>
+  </data>
+  <data name="EnableCb.Content" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="EnableInClassification.Content" xml:space="preserve">
+    <value>Activer le processus de classification !</value>
+  </data>
+  <data name="EnableInValidation.Content" xml:space="preserve">
+    <value>Activer dans le processus de validation !</value>
+  </data>
+  <data name="EnableSpeechRecognition.Text" xml:space="preserve">
+    <value>Activer la reconnaissance vocale</value>
+  </data>
+  <data name="English.Text" xml:space="preserve">
+    <value>English (en-us)</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="Exit.Text" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="Expand.Content" xml:space="preserve">
+    <value>Développer tout</value>
+  </data>
+  <data name="ExpandAll.Text" xml:space="preserve">
+    <value>Développer tout</value>
+  </data>
+  <data name="Explore.Text" xml:space="preserve">
+    <value>En savoir plus</value>
+  </data>
+  <data name="FastScanning.Text" xml:space="preserve">
+    <value>Numérisation rapide, utilisation élevée des ressources !</value>
+  </data>
+  <data name="Favorites.Content" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="FavoritesAdd.Text" xml:space="preserve">
+    <value>Ajouter aux favoris</value>
+  </data>
+  <data name="FavoritesRemove.Text" xml:space="preserve">
+    <value>Supprimer des favoris</value>
+  </data>
+  <data name="File.Title" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="FileFormatNotSupported" xml:space="preserve">
+    <value>Le format de fichier spécifié n'est pas pris en charge. !</value>
+  </data>
+  <data name="FtpError" xml:space="preserve">
+    <value>Impossible de se connecter au serveur FTP : %s</value>
+  </data>
+  <data name="FtpSuccess" xml:space="preserve">
+    <value>Connexion au serveur FTP réussie !</value>
+  </data>
+  <data name="HeardYouSay.Text" xml:space="preserve">
+    <value>J'ai entendu que tu disais : !</value>
+  </data>
+  <data name="Help.Title" xml:space="preserve">
+    <value>À l'aide</value>
+  </data>
+  <data name="HighAccuracy.Content" xml:space="preserve">
+    <value>Numérisation de haute précision (vitesse inférieure) !</value>
+  </data>
+  <data name="IntegrationWithGpt.Text" xml:space="preserve">
+    <value>Intégration avec chat GPT Api !</value>
+  </data>
+  <data name="IP.Text" xml:space="preserve">
+    <value>IP</value>
+  </data>
+  <data name="IPAddress.Header" xml:space="preserve">
+    <value>Adresse IP</value>
+  </data>
+  <data name="IpRangeComboBox.PlaceholderText" xml:space="preserve">
+    <value>Exemple : 192.168.0.1-100, 192.168.0.200</value>
+  </data>
+  <data name="IpRangeExample.Text" xml:space="preserve">
+    <value>Exemple : 192.168.0.1-100, 192.168.0.200 !</value>
+  </data>
+  <data name="IpRangeValidationMessage.Text" xml:space="preserve">
+    <value>Le format d'entrée de la plage IP est incorrect !</value>
+  </data>
+  <data name="Language.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>Lumière !</value>
+  </data>
+  <data name="LoadFavorites.Text" xml:space="preserve">
+    <value>Favoris</value>
+  </data>
+  <data name="Mac.Text" xml:space="preserve">
+    <value>MAC</value>
+  </data>
+  <data name="MACAddress.Header" xml:space="preserve">
+    <value>Adresse MAC</value>
+  </data>
+  <data name="MachineLearning.Text" xml:space="preserve">
+    <value>Apprentissage Automatique (Machine Learning)</value>
+  </data>
+  <data name="Manufacturer.Header" xml:space="preserve">
+    <value>Fabricant</value>
+  </data>
+  <data name="ManufacturerDetails.Text" xml:space="preserve">
+    <value>Fabricant</value>
+  </data>
+  <data name="MicrophoneAbout.Content" xml:space="preserve">
+    <value>Cliquez sur le bouton et commencez à dicter la plage d'adresses IP. Notez que seul l'anglais est pris en charge pour la saisie vocale. Vous pouvez dicter le terme à la fois par chaque nombre séparément (un, neuf, deux) et par nombre (cent quatre-vingt-douze). Pour saisir des caractères spéciaux, prononcez-les ('.' - "point", '-' - "tiret" et autres).
+
+Exemple : 192.168.0.1-200</value>
+  </data>
+  <data name="MicrophonePermissionError" xml:space="preserve">
+    <value>La reconnaissance vocale n'est pas activée. Veuillez l'activer dans les paramètres. !</value>
+  </data>
+  <data name="MicrophoneSettings_NotAccepted.Text" xml:space="preserve">
+    <value>Les paramètres de confidentialité de la reconnaissance vocale n'ont pas été acceptés. Ouvrez la politique de confidentialité pour consulter la politique de confidentialité et activer la personnalisation. !</value>
+  </data>
+  <data name="Name.Header" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="NetBIOS.Text" xml:space="preserve">
+    <value>NetBIOS (Network Basic Input/Output System)</value>
+  </data>
+  <data name="NetBiosGroup.Content" xml:space="preserve">
+    <value>Groupe NetBIOS !</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>en ligne</value>
+  </data>
+  <data name="OperatingSystem.Text" xml:space="preserve">
+    <value>Système d’exploitation</value>
+  </data>
+  <data name="OperationNotSupported" xml:space="preserve">
+    <value>L'opération n'est pas prise en charge pour l'appareil sélectionné !</value>
+  </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>Options...</value>
+  </data>
+  <data name="OptionsNavigationView.PaneTitle" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Pause.Content" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Performance.Content" xml:space="preserve">
+    <value>Performance</value>
+  </data>
+  <data name="Peripheral.Content" xml:space="preserve">
+    <value>La vasoconstriction</value>
+  </data>
+  <data name="PressToSpeak.Text" xml:space="preserve">
+    <value>presser de</value>
+  </data>
+  <data name="Print.Text" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="PrintDetails.Content" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="PrintPreview.Text" xml:space="preserve">
+    <value>Aperçu avant impression</value>
+  </data>
+  <data name="PrivacySettingsButton.Content" xml:space="preserve">
+    <value>paramètres de confidentialité</value>
+  </data>
+  <data name="RdpError" xml:space="preserve">
+    <value>Impossible de se connecter à l'appareil via le protocole RDP !</value>
+  </data>
+  <data name="Rename.Text" xml:space="preserve">
+    <value>Renommer</value>
+  </data>
+  <data name="ReportBug.Text" xml:space="preserve">
+    <value>Signaler un bug</value>
+  </data>
+  <data name="ReportCreationError" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la génération du rapport, veuillez vérifier la clé API !</value>
+  </data>
+  <data name="RequestFeature.Text" xml:space="preserve">
+    <value>Demander une fonctionnalité</value>
+  </data>
+  <data name="Rescan.Text" xml:space="preserve">
+    <value>Scanner à nouveau</value>
+  </data>
+  <data name="Resources.Content" xml:space="preserve">
+    <value>Plus de ressources WP</value>
+  </data>
+  <data name="Results.Content" xml:space="preserve">
+    <value>Résultats</value>
+  </data>
+  <data name="Resume.Content" xml:space="preserve">
+    <value>Reprendre</value>
+  </data>
+  <data name="Save.Content" xml:space="preserve">
+    <value>Enregistré</value>
+  </data>
+  <data name="SaveAs.Text" xml:space="preserve">
+    <value>Enregistrer sous...</value>
+  </data>
+  <data name="SaveAsDetails.Content" xml:space="preserve">
+    <value>Enregistrer sous...</value>
+  </data>
+  <data name="SaveButton.Content" xml:space="preserve">
+    <value>Enregistré !</value>
+  </data>
+  <data name="SaveFavorites.Content" xml:space="preserve">
+    <value>Enregistrer les modifications dans votre liste de favoris
+
+Notez que les modifications seront appliquées au fichier actuel (soit le fichier ouvert par défaut, soit celui que vous avez sélectionné) !</value>
+  </data>
+  <data name="Scan.Text" xml:space="preserve">
+    <value>Scanner</value>
+  </data>
+  <data name="ScanConfiguration.Text" xml:space="preserve">
+    <value>Configuration du scan : !</value>
+  </data>
+  <data name="ScanFromFile.Text" xml:space="preserve">
+    <value>À partir d'un fichier...</value>
+  </data>
+  <data name="ScanFromFileError" xml:space="preserve">
+    <value>Impossible de numériser à partir du fichier lors de l'affichage des favoris !</value>
+  </data>
+  <data name="ScanFromFileTitle" xml:space="preserve">
+    <value>Depuis le fichier</value>
+  </data>
+  <data name="ScanningSpeed.Text" xml:space="preserve">
+    <value>Vitesse de scan</value>
+  </data>
+  <data name="ScanResources.Text" xml:space="preserve">
+    <value>Scanner les ressources:</value>
+  </data>
+  <data name="Search.PlaceholderText" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SelectTheme.Header" xml:space="preserve">
+    <value>Sélectionner le thème</value>
+  </data>
+  <data name="Service.Text" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Settings.Title" xml:space="preserve">
+    <value>Réglages</value>
+  </data>
+  <data name="SharedFoldersAndPrinters.Content" xml:space="preserve">
+    <value>Dossiers et imprimantes partagés !</value>
+  </data>
+  <data name="ShowActionToolbar.Text" xml:space="preserve">
+    <value>Barre d'outils d'action</value>
+  </data>
+  <data name="ShowAlive.Text" xml:space="preserve">
+    <value>Vivants !</value>
+  </data>
+  <data name="ShowDead.Text" xml:space="preserve">
+    <value>mort(e) - décédé(e)</value>
+  </data>
+  <data name="ShowMiscellaneousToolbar.Text" xml:space="preserve">
+    <value>Afficher la barre d'outils divers !</value>
+  </data>
+  <data name="ShowTheDetailsPane.Text" xml:space="preserve">
+    <value>Affichez la page de détails !</value>
+  </data>
+  <data name="ShowUnknown.Text" xml:space="preserve">
+    <value>Inconnu !</value>
+  </data>
+  <data name="SlowScanning.Text" xml:space="preserve">
+    <value>Balayage lent, faible utilisation des ressources !</value>
+  </data>
+  <data name="SpeechPrivacyPolicyDeclined" xml:space="preserve">
+    <value>La déclaration de confidentialité a été refusée. Allez dans Paramètres -&gt; Confidentialité -&gt; Discours, encrage et saisie, et assurez-vous d'avoir consulté la politique de confidentialité, et Cortana est défini sur « Apprenez à vous connaître ». !</value>
+  </data>
+  <data name="SpeechRecognitionFailed" xml:space="preserve">
+    <value>Échec de la reconnaissance vocale, statut : !</value>
+  </data>
+  <data name="Status.Header" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="StatusDetails.Text" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Stop.Text" xml:space="preserve">
+    <value>Arrête</value>
+  </data>
+  <data name="Subnet.Content" xml:space="preserve">
+    <value>Le sous-réseau de cette machine sera scanné !</value>
+  </data>
+  <data name="SubnetC.Content" xml:space="preserve">
+    <value>Le sous-réseau de classe « C » sera scanné !</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Réussi</value>
+  </data>
+  <data name="TapAndSpeak.Text" xml:space="preserve">
+    <value>Appuyez sur le microphone et parlez. Cet exemple utilise une contrainte grammaticale de dictée prédéfinie, de sorte que vous pouvez librement dicter un message court. !</value>
+  </data>
+  <data name="TcpError" xml:space="preserve">
+    <value>Impossible de se connecter.</value>
+  </data>
+  <data name="TcpPort.Text" xml:space="preserve">
+    <value>Port TCP:</value>
+  </data>
+  <data name="TcpSuccess" xml:space="preserve">
+    <value>Connexion réussie. Le service est disponible !</value>
+  </data>
+  <data name="TcpTextBox.PlaceholderText" xml:space="preserve">
+    <value>Valeur par défaut: 80</value>
+  </data>
+  <data name="TelnetError" xml:space="preserve">
+    <value>Impossible de trouver telnet.exe. Vérifiez si Telnet est installé !</value>
+  </data>
+  <data name="Tools.Text" xml:space="preserve">
+    <value>Les outils</value>
+  </data>
+  <data name="Type.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TypeDetails.Content" xml:space="preserve">
+    <value>Veuillez noter que le modèle d'IA peut faire des erreurs dans la détermination du type d'appareil !</value>
+  </data>
+  <data name="UdpError" xml:space="preserve">
+    <value>Impossible de se connecter au serveur !</value>
+  </data>
+  <data name="UdpPort.Text" xml:space="preserve">
+    <value>Port UDP:</value>
+  </data>
+  <data name="UdpSuccess" xml:space="preserve">
+    <value>Connexion au serveur UDP réussie !</value>
+  </data>
+  <data name="UdpTextBox.PlaceholderText" xml:space="preserve">
+    <value>Valeur par défaut: 137</value>
+  </data>
+  <data name="Ukranian.Text" xml:space="preserve">
+    <value>Ukrainien (uk-UA)</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>inconnu</value>
+  </data>
+  <data name="User.Text" xml:space="preserve">
+    <value>Utilisateur</value>
+  </data>
+  <data name="View.Title" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="WakeOnLan.Text" xml:space="preserve">
+    <value>Technologie Wake On LAN</value>
+  </data>
+  <data name="WrongFile" xml:space="preserve">
+    <value>Impossible de charger les données. Vous avez peut-être sélectionné le mauvais fichier json</value>
+  </data>
+  <data name="German.Text" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="French.Text" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="Spanish.Text" xml:space="preserve">
+    <value>Espagnol</value>
+  </data>
+  <data name="NoInternet" xml:space="preserve">
+    <value>Il n'y a pas de connexion à Internet.</value>
+  </data>
+</root>

@@ -1,0 +1,71 @@
+﻿<Page x:Name="PageRoot"
+    x:Class="IpScanner.Ui.Pages.InputBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:IpScanner.Ui.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:BoolInvertConverter x:Key="BooleanInvertConverter"/>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Page.Resources>
+
+    <!-- Input bar -->
+    <Grid Grid.Row="1" Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox x:Name="HistoryComboBox" x:Uid="IpRangeComboBox" IsEditable="True" HorizontalAlignment="Stretch" Height="33"
+             ItemsSource="{x:Bind ViewModel.History, Mode=OneWay}"
+             Text="{x:Bind ViewModel.IpRange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+             IsEnabled="{x:Bind ViewModel.IpRangeEnabled, Mode=OneWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{x:Bind}" />
+                        <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Background="Transparent"
+                                Visibility="{Binding ElementName=HistoryComboBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}"
+                                Command="{Binding ElementName=PageRoot, Path=ViewModel.RemoveItemFromHistoryCommand}" 
+                                CommandParameter="{x:Bind}">
+                            <FontIcon Glyph="&#xE8BB;" FontSize="12"/>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Grid.Column="1" Margin="3,0,0,0" 
+            Command="{x:Bind ViewModel.RecognizeSpeechCommand}"
+            IsEnabled="{x:Bind ViewModel.MicrophoneEnabled, Mode=OneWay}">
+            <StackPanel>
+                <FontIcon Glyph="&#xE720;" />
+            </StackPanel>
+
+            <ToolTipService.ToolTip>
+                <ToolTip x:Uid="MicrophoneAbout" />
+            </ToolTipService.ToolTip>
+        </Button>
+        
+        <AutoSuggestBox x:Uid="Search" Grid.Column="2" QueryIcon="Find" PlaceholderText="Search" Margin="3,0,0,0" 
+             Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock x:Uid="IpRangeValidationMessage" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2,0,5,0"
+             Visibility="{x:Bind ViewModel.HasValidationError, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+             Foreground="{StaticResource ErrorColorBrush}"/>
+    </Grid>
+</Page>

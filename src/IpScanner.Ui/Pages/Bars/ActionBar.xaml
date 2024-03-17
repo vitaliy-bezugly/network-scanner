@@ -1,0 +1,161 @@
+﻿<Page
+    x:Class="IpScanner.Ui.Pages.ActionBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:IpScanner.Ui.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BoolToVisibilityInvertConverter x:Key="BoolToVisibilityInvertConverter" />
+        <converters:NullToBoolConverter x:Key="NullToBoolConverter" />
+        <converters:BoolInvertConverter x:Key="BooleanInvertConverter" />
+    </Page.Resources>
+
+    <!-- Action bar -->
+    <StackPanel Grid.Row="0" Orientation="Horizontal" Padding="5,0,5,0" Margin="0" VerticalAlignment="Top">
+        <Button Margin="0 0 5 0" Command="{x:Bind ViewModel.ScanCommand}"
+            Visibility="{x:Bind ViewModel.Scanning, Mode=TwoWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xE768;" Foreground="Green"/>
+                <TextBlock x:Uid="Scan" Margin="5,0,0,0" ></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Margin="0 0 5 0" Command="{x:Bind ViewModel.CancelCommand}" 
+                IsEnabled="{x:Bind ViewModel.Stopping, Mode=TwoWay, Converter={StaticResource BooleanInvertConverter}}"
+                Visibility="{x:Bind ViewModel.Scanning, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xE71A;" Foreground="DodgerBlue"/>
+                <TextBlock x:Uid="Stop" Margin="5,0,0,0"></TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Margin="5,0,5,0"  Command="{x:Bind ViewModel.PauseCommand}" 
+            IsEnabled="{x:Bind ViewModel.Scanning, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.Paused, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
+            
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xE769;">
+                    <ToolTipService.ToolTip>
+                        <ToolTip x:Uid="Pause"/>
+                    </ToolTipService.ToolTip>
+                </FontIcon>
+            </StackPanel>
+        </Button>
+
+        <Button Margin="5,0,5,0"  Command="{x:Bind ViewModel.ResumeCommand}" IsEnabled="{x:Bind ViewModel.Scanning, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.Paused, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon Glyph="&#xEDB5;" Foreground="{ThemeResource SystemFillColorCriticalBrush}">
+                    <ToolTipService.ToolTip>
+                        <ToolTip x:Uid="Resume"/>
+                    </ToolTipService.ToolTip>
+                </FontIcon>
+            </StackPanel>
+        </Button>
+
+        <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.ShowMiscellaneous, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            
+            <StackPanel Orientation="Vertical">
+                <AppBarSeparator Style="{StaticResource GraySeparatorStyle}" />
+            </StackPanel>
+
+            <Button Margin="5,0,5,0" Command="{x:Bind ViewModel.SetSubnetMaskCommand}"
+                 IsEnabled="{x:Bind ViewModel.FavoritesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xF6FA;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="Subnet"/>
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="5,0,5,0" Command="{x:Bind ViewModel.SetSubnetMaskClassCCommand}"
+                IsEnabled="{x:Bind ViewModel.FavoritesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xED5C;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="SubnetC"/>
+                </ToolTipService.ToolTip>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.ShowActions, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+            
+            <StackPanel Orientation="Vertical">
+                <AppBarSeparator Style="{StaticResource GraySeparatorStyle}" /> 
+            </StackPanel>
+
+            <Button Margin="5,0,5,0" 
+                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                Command="{x:Bind ViewModel.ExploreInExplorerCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xF12B;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Explore"/>
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="5,0,5,0" 
+                 IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                 Command="{x:Bind ViewModel.ExploreWithHttpCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE774;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Http"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            
+            <Button Margin="5,0,5,0" 
+                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                Command="{x:Bind ViewModel.ExploreWithHttpsCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xF552;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Https"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            
+            <Button Margin="5,0,5,0"
+                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                Command="{x:Bind ViewModel.ExploreWithFtpCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xEC50;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Ftp"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            
+            <Button Margin="5,0,5,0"
+                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                Command="{x:Bind ViewModel.ExploreWithRdpCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE836;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Rdp"/>
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="5,0,5,0"
+                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+                Command="{x:Bind ViewModel.WakeOnLanCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="&#xE7E8;"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="Wake on LAN"/>
+                </ToolTipService.ToolTip>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Page>

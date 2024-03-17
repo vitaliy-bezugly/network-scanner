@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="IpScanner.Ui.Pages.Options.ResourcesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:IpScanner.Ui.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:StringToIntConverter x:Key="StringToIntConverter" />
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock x:Uid="ScanResources" FontSize="18"/>
+            <CheckBox Content="HTTP" IsChecked="{x:Bind ViewModel.ScanHttp, Mode=TwoWay}" />
+            <CheckBox Content="TCP" IsChecked="{x:Bind ViewModel.ScanTcp, Mode=TwoWay}" />
+            <CheckBox Content="UDP" IsChecked="{x:Bind ViewModel.ScanUdp, Mode=TwoWay}" />
+            <CheckBox x:Uid="DateTimeTimeZone" IsChecked="{x:Bind ViewModel.ScanDateTime, Mode=TwoWay}"/>
+
+            <TextBlock x:Uid="MachineLearning" FontSize="18" Margin="0,5,0,5"/>
+            <CheckBox x:Uid="EnableInValidation" IsChecked="{x:Bind ViewModel.EnableValidationMachineLearning, Mode=TwoWay}" />
+            <CheckBox x:Uid="EnableInClassification" IsChecked="{x:Bind ViewModel.EnableClassificationMachineLearning, Mode=TwoWay}" />
+
+            <TextBlock x:Uid="IntegrationWithGpt" FontSize="18" Margin="0,5,0,5"/>
+            <CheckBox x:Uid="EnableCb" IsChecked="{x:Bind ViewModel.EnableGpt, Mode=TwoWay}"/>
+            <PasswordBox x:Uid="ApiKeyPb" Width="450" HorizontalAlignment="Left"
+            IsEnabled="{x:Bind ViewModel.EnableGpt, Mode=OneWay}"
+            Password="{x:Bind ViewModel.ApiKey, Mode=TwoWay}"/>
+
+            <TextBlock x:Uid="ScanConfiguration" Margin="0,5,0,5" FontSize="18"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" x:Uid="UdpPort" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Uid="UdpTextBox" Grid.Row="0" Grid.Column="1" Margin="0,5,0,0" Width="290" HorizontalAlignment="Left"
+                Text="{x:Bind ViewModel.UdpPort, Mode=TwoWay, Converter={StaticResource StringToIntConverter}}"/>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="*" Foreground="Crimson" FontSize="12" Margin="0,0,2,0"/>
+                    <TextBlock x:Uid="DontChange" FontSize="10" Foreground="Gray" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" x:Uid="TcpPort" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Uid="TcpTextBox" Grid.Row="2" Grid.Column="1" Margin="0,5,0,0" Width="290" HorizontalAlignment="Left"
+                Text="{x:Bind ViewModel.TcpPort, Mode=TwoWay, Converter={StaticResource StringToIntConverter}}"/>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="*" Foreground="Crimson" FontSize="12" Margin="0,0,2,0"/>
+                    <TextBlock x:Uid="DontChange" FontSize="10" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+
+            <Button x:Uid="SaveButton" MinWidth="120" Margin="0,10,0,10" 
+            Style="{StaticResource AccentButtonStyle}"
+            Command="{x:Bind ViewModel.SaveCommand}"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,82 @@
+﻿using Microsoft.AI.MachineLearning;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace IpScanner.Infrastructure.MachineLearning.Helpers
+{
+    internal class IpRangeHelper
+    {
+        private const int InputSize = 18;
+
+        public Task<TensorInt64Bit> GetStringTensor(string inputString)
+        {
+            var tensorData = ConvertIpRangeToNumericList(inputString);
+            return Task.FromResult(TensorInt64Bit.CreateFromArray(new long[] { 1, InputSize }, tensorData));
+        }
+
+        public Task<bool> IsResultValid(TensorInt64Bit result)
+        {
+            var resultValue = result.GetAsVectorView()[0];
+            bool isValid = resultValue != 0;
+
+            return Task.FromResult(isValid);
+        }
+
+        static long[] ConvertIpRangeToNumericList(string inputStr)
+        {
+            List<int> output = new List<int>();
+            inputStr = inputStr.Replace(" ", "");
+
+            string[] ipRanges = inputStr.Split(',');
+            foreach (var ipRange in ipRanges)
+            {
+                string[] octets = ipRange.Split('.');
+                int missingOctets = 4 - octets.Length;
+
+                foreach (var octet in octets)
+                {
+                    output.AddRange(ParseOctet(octet));
+                }
+
+                // Append -1 for each missing octet
+                output.AddRange(Enumerable.Repeat(-1, missingOctets));
+            }
+
+            for (int i = 0; i < InputSize; ++i)
+            {
+                if (i >= output.Count)
+                {
+                    output.Add(0);
+                }
+            }
+
+            return output.Select(x => (long)x).ToArray();
+        }
+
+        static List<int> ParseOctet(string octet)
+        {
+            List<int> result = new List<int>();
+            if (int.TryParse(octet, out int value))
+            {
+                result.Add(value);
+            }
+            else if (octet.Contains("-"))
+            {
+                string[] parts = octet.Split('-');
+                if (parts.Length == 2 && int.TryParse(parts[0], out int start) && int.TryParse(parts[1], out int end))
+                {
+                    result.Add(start);
+                    result.Add(end);
+                }
+            }
+
+            if (!result.Any())
+            {
+                result.Add(-1);
+            }
+
+            return result;
+        }
+    }
+}

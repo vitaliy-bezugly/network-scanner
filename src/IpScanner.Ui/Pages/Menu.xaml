@@ -1,0 +1,140 @@
+﻿<Page
+    x:Class="IpScanner.Ui.Pages.Menu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:IpScanner.Ui.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid VerticalAlignment="Top">
+        <MenuBar Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <MenuBarItem x:Uid="File">
+                <MenuFlyoutItem x:Uid="ScanFromFile" Command="{x:Bind ViewModel.FileViewModel.ScanFromFileCommand, Mode=OneWay}"></MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="LoadFavorites" Command="{x:Bind ViewModel.FileViewModel.LoadFavoritesCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xF12B;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem x:Uid="SaveAs" Command="{x:Bind ViewModel.FileViewModel.SaveDevicesCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE74E;" />
+                    </MenuFlyoutItem.Icon>
+
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="PrintPreview" Command="{x:Bind ViewModel.FileViewModel.PrintPreviewCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE956;" />
+                    </MenuFlyoutItem.Icon>
+
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="P"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="Exit" Command="{x:Bind ViewModel.FileViewModel.ExitCommand}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="F4"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem x:Uid="View">
+                <MenuFlyoutItem x:Uid="ShowAlive" Command="{x:Bind ViewModel.ViewViewModel.InvertOnlineVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowOnline, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem x:Uid="ShowDead" Command="{x:Bind ViewModel.ViewViewModel.InvertOfflineVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowOffline, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem x:Uid="ShowUnknown" Command="{x:Bind ViewModel.ViewViewModel.InvertUnknownVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowUnknown, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="ShowMiscellaneousToolbar" Command="{x:Bind ViewModel.ViewViewModel.InvertMiscellaneousVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowMiscellaneous, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem x:Uid="ShowActionToolbar" Command="{x:Bind ViewModel.ViewViewModel.InvertActionsVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowActions, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="ShowTheDetailsPane" Command="{x:Bind ViewModel.ViewViewModel.InvertDetailsPageVisibilityCommand}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE73E;" Visibility="{x:Bind ViewModel.ViewViewModel.ShowDetails, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+
+            <MenuBarItem x:Uid="Settings">
+                <MenuFlyoutItem x:Uid="Options" 
+                    Command="{x:Bind ViewModel.SettingsViewModel.ShowOptionsDialogCommand, Mode=OneWay}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE713;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutSubItem x:Uid="Language">
+                    <MenuFlyoutItem x:Uid="English" Command="{x:Bind ViewModel.SettingsViewModel.ChangeLanguageCommand}" CommandParameter="en-US"/>
+                    <MenuFlyoutItem x:Uid="Ukranian" Command="{x:Bind ViewModel.SettingsViewModel.ChangeLanguageCommand}" CommandParameter="uk-UA"/>
+                    <MenuFlyoutItem x:Uid="German" Command="{x:Bind ViewModel.SettingsViewModel.ChangeLanguageCommand}" CommandParameter="de-DE"/>
+                    <MenuFlyoutItem x:Uid="Spanish" Command="{x:Bind ViewModel.SettingsViewModel.ChangeLanguageCommand}" CommandParameter="es-ES"/>
+                    <MenuFlyoutItem x:Uid="French" Command="{x:Bind ViewModel.SettingsViewModel.ChangeLanguageCommand}" CommandParameter="fr-FR"/>
+                </MenuFlyoutSubItem>
+            </MenuBarItem>
+
+            <MenuBarItem x:Uid="Help">
+                <MenuFlyoutItem x:Uid="Contents" Command="{x:Bind ViewModel.HelpViewModel.OpenContentsCommand}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="F1"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+
+                <MenuFlyoutItem x:Uid="ReportBug" Command="{x:Bind ViewModel.HelpViewModel.OpenBugReportCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="RequestFeature" Command="{x:Bind ViewModel.HelpViewModel.OpenRequestFeatureCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="Community" Command="{x:Bind ViewModel.HelpViewModel.OpenCommunityCommand}"></MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="DownloadRadmin" Command="{x:Bind ViewModel.HelpViewModel.DownloadRadminCommand}"></MenuFlyoutItem>
+
+                <MenuFlyoutSeparator></MenuFlyoutSeparator>
+
+                <MenuFlyoutItem x:Uid="CheckForUpdates"></MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="About" Command="{x:Bind ViewModel.HelpViewModel.OpenAboutCommand}"></MenuFlyoutItem>
+            </MenuBarItem>
+        </MenuBar>
+    </Grid>
+</Page>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4B169A5-DC8B-404A-A9E6-98E219A04ACE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IpScanner.Services</RootNamespace>
+    <AssemblyName>IpScanner.Services</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22621.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <PlatformTarget>ARM</PlatformTarget>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IApplicationExitService.cs" />
+    <Compile Include="Abstract\IAppWindowManager.cs" />
+    <Compile Include="Abstract\IClipboardService.cs" />
+    <Compile Include="Abstract\ICmdService.cs" />
+    <Compile Include="Abstract\IColorThemeService.cs" />
+    <Compile Include="Abstract\IContentBarCustomizationService.cs" />
+    <Compile Include="Abstract\IDataGridService.cs" />
+    <Compile Include="Abstract\IDialogService.cs" />
+    <Compile Include="Abstract\IFileService.cs" />
+    <Compile Include="Abstract\IGptService.cs" />
+    <Compile Include="Abstract\IPromptCreatorService.cs" />
+    <Compile Include="Abstract\IReportCreatorService.cs" />
+    <Compile Include="Abstract\ISpeechSynthesizerService.cs" />
+    <Compile Include="Abstract\ISpeechRecognizerService.cs" />
+    <Compile Include="AppWindowManager.cs" />
+    <Compile Include="Containers\Abstract\IFramesContainer.cs" />
+    <Compile Include="Abstract\IFtpService.cs" />
+    <Compile Include="Abstract\IIpAddressParserService.cs" />
+    <Compile Include="Abstract\ILocalizationService.cs" />
+    <Compile Include="Abstract\IModalsService.cs" />
+    <Compile Include="Abstract\INavigationService.cs" />
+    <Compile Include="Abstract\IPrintService.cs" />
+    <Compile Include="Abstract\IRdpService.cs" />
+    <Compile Include="Abstract\ITelnetService.cs" />
+    <Compile Include="Abstract\IUriOpenerService.cs" />
+    <Compile Include="Abstract\IWakeOnLanService.cs" />
+    <Compile Include="ApplicationExitService.cs" />
+    <Compile Include="ClipboardService.cs" />
+    <Compile Include="CmdService.cs" />
+    <Compile Include="ColorThemeService.cs" />
+    <Compile Include="Containers\ChildElementsContainer.cs" />
+    <Compile Include="Containers\Abstract\IChildElementsContainer.cs" />
+    <Compile Include="ContentBarCustomizationService.cs" />
+    <Compile Include="DeviceDataGridService.cs" />
+    <Compile Include="DeviceReportCreatorServiceProxy.cs" />
+    <Compile Include="DialogService.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="Containers\FramesContainer.cs" />
+    <Compile Include="FtpService.cs" />
+    <Compile Include="GptService.cs" />
+    <Compile Include="HttpService.cs" />
+    <Compile Include="IpAddressParserService.cs" />
+    <Compile Include="DevicePromptCreatorService.cs" />
+    <Compile Include="MetroLogger.cs" />
+    <Compile Include="DeviceReportCreatorService.cs" />
+    <Compile Include="SpeechSynthesizerService.cs" />
+    <Compile Include="LocalizationService.cs" />
+    <Compile Include="ModalsService.cs" />
+    <Compile Include="NavigationService.cs" />
+    <Compile Include="Containers\Abstract\IPanelContainer.cs" />
+    <Compile Include="Containers\PanelContainer.cs" />
+    <Compile Include="DevicePrintService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configurators\ServiceConfigurator.cs" />
+    <Compile Include="RdpService.cs" />
+    <Compile Include="SettingsService.cs" />
+    <Compile Include="SpeechRecognizerService.cs" />
+    <Compile Include="TcpService.cs" />
+    <Compile Include="TelnetService.cs" />
+    <Compile Include="UdpService.cs" />
+    <Compile Include="UriOpenerService.cs" />
+    <Compile Include="WakeOnLanService.cs" />
+    <EmbeddedResource Include="Properties\IpScanner.Services.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentResults">
+      <Version>3.15.2</Version>
+    </PackageReference>
+    <PackageReference Include="MetroLog">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>7.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>7.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>7.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Netizine.OpenAI">
+      <Version>1.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Scrutor">
+      <Version>4.2.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IpScanner.Domain\IpScanner.Domain.csproj">
+      <Project>{41bd8b5f-4cd5-4686-9e20-b21cdb18eb7d}</Project>
+      <Name>IpScanner.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IpScanner.Helpers\IpScanner.Helpers.csproj">
+      <Project>{640573f2-6d58-4c6d-b6a3-af8ba223c46a}</Project>
+      <Name>IpScanner.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IpScanner.Infrastructure\IpScanner.Infrastructure.csproj">
+      <Project>{1b9dc7d3-0763-4f6f-9ea9-9ed5a608d273}</Project>
+      <Name>IpScanner.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IpScanner.Models\IpScanner.Models.csproj">
+      <Project>{64b42982-b487-4c31-af70-db623fcae78c}</Project>
+      <Name>IpScanner.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
