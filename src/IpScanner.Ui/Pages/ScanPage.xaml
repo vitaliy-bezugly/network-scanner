@@ -153,13 +153,14 @@
 						<ColumnDefinition Width="Auto" />
 					</Grid.ColumnDefinitions>
 
-					<ComboBox
-						Grid.Column="0"
-						MinWidth="250"
-						SelectedValue="{Binding FavoritesDevicesViewModel.SelectedCollection, Mode=TwoWay}"
-						SelectedValuePath="Tag">
-						<ComboBoxItem x:Uid="Results" Tag="Results" />
-						<ComboBoxItem x:Uid="Favorites" Tag="Favorites" />
+					<ComboBox Grid.Column="0"
+							  MinWidth="250"
+							  SelectedValue="{Binding FavoritesDevicesViewModel.SelectedCollection, Mode=TwoWay}"
+							  SelectedValuePath="Tag">
+						<ComboBoxItem x:Uid="Results"
+									  Tag="Results" />
+						<ComboBoxItem x:Uid="Favorites"
+									  Tag="Favorites" />
 					</ComboBox>
 
 					<ProgressRing

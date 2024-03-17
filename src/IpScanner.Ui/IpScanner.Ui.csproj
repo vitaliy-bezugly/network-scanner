@@ -161,9 +161,6 @@
     <Compile Include="Pages\Options\PerformancePage.xaml.cs">
       <DependentUpon>PerformancePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Options\PeripheralPage.xaml.cs">
-      <DependentUpon>PeripheralPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Options\ResourcesPage.xaml.cs">
       <DependentUpon>ResourcesPage.xaml</DependentUpon>
     </Compile>
@@ -278,10 +275,6 @@
     <Page Include="Pages\Options\PerformancePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Options\PeripheralPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Options\ResourcesPage.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -25,43 +25,41 @@
             <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ComboBox x:Name="HistoryComboBox" x:Uid="IpRangeComboBox" IsEditable="True" HorizontalAlignment="Stretch" Height="33"
-             ItemsSource="{x:Bind ViewModel.History, Mode=OneWay}"
-             Text="{x:Bind ViewModel.IpRange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-             IsEnabled="{x:Bind ViewModel.IpRangeEnabled, Mode=OneWay}">
-            <ComboBox.ItemTemplate>
-                <DataTemplate x:DataType="x:String">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+		<ComboBox x:Name="HistoryComboBox"
+				  x:Uid="IpRangeComboBox"
+				  IsEditable="True"
+				  HorizontalAlignment="Stretch"
+				  Height="33"
+				  ItemsSource="{x:Bind ViewModel.History, Mode=OneWay}"
+				  Text="{x:Bind ViewModel.IpRange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+				  IsEnabled="{x:Bind ViewModel.IpRangeEnabled, Mode=OneWay}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate x:DataType="x:String">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{x:Bind}" />
-                        <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Background="Transparent"
-                                Visibility="{Binding ElementName=HistoryComboBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}"
-                                Command="{Binding ElementName=PageRoot, Path=ViewModel.RemoveItemFromHistoryCommand}" 
-                                CommandParameter="{x:Bind}">
-                            <FontIcon Glyph="&#xE8BB;" FontSize="12"/>
-                        </Button>
-                    </Grid>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+						<TextBlock Grid.Column="0"
+								   Text="{x:Bind}" />
+						<Button Grid.Column="1"
+								HorizontalAlignment="Right"
+								VerticalAlignment="Center"
+								BorderThickness="0"
+								Background="Transparent"
+								Visibility="{Binding ElementName=HistoryComboBox, Path=IsDropDownOpen, Converter={StaticResource BoolToVisibilityConverter}}"
+								Command="{Binding ElementName=PageRoot, Path=ViewModel.RemoveItemFromHistoryCommand}"
+								CommandParameter="{x:Bind}">
+							<FontIcon Glyph="&#xE8BB;"
+									  FontSize="12" />
+						</Button>
+					</Grid>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
 
-        <Button Grid.Column="1" Margin="3,0,0,0" 
-            Command="{x:Bind ViewModel.RecognizeSpeechCommand}"
-            IsEnabled="{x:Bind ViewModel.MicrophoneEnabled, Mode=OneWay}">
-            <StackPanel>
-                <FontIcon Glyph="&#xE720;" />
-            </StackPanel>
-
-            <ToolTipService.ToolTip>
-                <ToolTip x:Uid="MicrophoneAbout" />
-            </ToolTipService.ToolTip>
-        </Button>
-        
-        <AutoSuggestBox x:Uid="Search" Grid.Column="2" QueryIcon="Find" PlaceholderText="Search" Margin="3,0,0,0" 
+		<AutoSuggestBox x:Uid="Search" Grid.Column="2" QueryIcon="Find" PlaceholderText="Search" Margin="3,0,0,0" 
              Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock x:Uid="IpRangeValidationMessage" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2,0,5,0"

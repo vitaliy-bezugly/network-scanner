@@ -59,10 +59,10 @@ namespace IpScanner.ViewModels.Bars
             settings = settingsService.Settings;
             history = new ObservableCollection<string>();
             searchFilter = new ItemFilter<Device>(device => device.Name.ToLower().Contains(SearchText.ToLower()));
-            IpRange = string.Empty;
             HasValidationError = false;
             IpRangeEnabled = settingsService.Settings.FavoritesSelected == false;
             MicrophoneEnabled = settingsService.Settings.MicrophoneEnabled;
+            IpRange = NetworkHelper.GetLocalIpRange();
             RegisterMessages(messenger);
             LoadHistoryCommand.Execute(null);
         }
