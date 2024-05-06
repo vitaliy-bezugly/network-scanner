@@ -1,53 +1,58 @@
-﻿<Page
-	x:Class="IpScanner.Ui.Pages.ScanPage"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-	xmlns:converters="using:IpScanner.Ui.Converters"
-	xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:views="using:IpScanner.Ui.Pages"
-	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-	mc:Ignorable="d">
+﻿<Page x:Class="IpScanner.Ui.Pages.ScanPage"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+	  xmlns:converters="using:IpScanner.Ui.Converters"
+	  xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	  xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  xmlns:views="using:IpScanner.Ui.Pages"
+	  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	  mc:Ignorable="d">
 
 	<Page.Resources>
 		<!--  Context menu  -->
 		<MenuFlyout x:Key="ResultsContextMenu">
-			<MenuFlyoutItem
-				x:Uid="Explore"
-				Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreInExplorerCommand}"
-				FontWeight="Bold">
+			<MenuFlyoutItem x:Uid="Explore"
+							Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreInExplorerCommand}"
+							FontWeight="Bold">
 				<MenuFlyoutItem.Icon>
 					<FontIcon Glyph="&#xED25;" />
 				</MenuFlyoutItem.Icon>
 			</MenuFlyoutItem>
 
 			<MenuFlyoutSubItem x:Uid="Tools">
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.SendTcpCommand}" Text="TCP" />
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.SendUdpCommand}" Text="UDP" />
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreHttpCommand}" Text="HTTP">
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.SendTcpCommand}"
+								Text="TCP" />
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.SendUdpCommand}"
+								Text="UDP" />
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreHttpCommand}"
+								Text="HTTP">
 					<MenuFlyoutItem.Icon>
 						<FontIcon Glyph="&#xE774;" />
 					</MenuFlyoutItem.Icon>
 				</MenuFlyoutItem>
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreHttpsCommand}" Text="HTTPS">
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreHttpsCommand}"
+								Text="HTTPS">
 					<MenuFlyoutItem.Icon>
 						<FontIcon Glyph="&#xF552;" />
 					</MenuFlyoutItem.Icon>
 				</MenuFlyoutItem>
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreFtpCommand}" Text="FTP">
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreFtpCommand}"
+								Text="FTP">
 					<MenuFlyoutItem.Icon>
 						<FontIcon Glyph="&#xEC50;" />
 					</MenuFlyoutItem.Icon>
 				</MenuFlyoutItem>
-				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreRdpCommand}" Text="RDP">
+				<MenuFlyoutItem Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.ExploreRdpCommand}"
+								Text="RDP">
 					<MenuFlyoutItem.Icon>
 						<FontIcon Glyph="&#xE836;" />
 					</MenuFlyoutItem.Icon>
 				</MenuFlyoutItem>
-				<MenuFlyoutItem x:Uid="WakeOnLan" Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.WakeOnLanCommand}">
+				<MenuFlyoutItem x:Uid="WakeOnLan"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.ToolsViewModel.WakeOnLanCommand}">
 					<MenuFlyoutItem.Icon>
 						<FontIcon Glyph="&#xE7E8;" />
 					</MenuFlyoutItem.Icon>
@@ -61,21 +66,26 @@
 			<MenuFlyoutSeparator />
 
 			<MenuFlyoutSubItem x:Uid="Copy">
-				<MenuFlyoutItem x:Uid="All" Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyAllCommand}" />
+				<MenuFlyoutItem x:Uid="All"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyAllCommand}" />
 				<MenuFlyoutSeparator />
 
-				<MenuFlyoutItem x:Uid="CopyName" Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyNameCommand}" />
-				<MenuFlyoutItem x:Uid="Ip" Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyIpCommand}" />
-				<MenuFlyoutItem x:Uid="CopyManufacturer" Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyManufacturerCommand}" />
-				<MenuFlyoutItem x:Uid="CopyMACAddress" Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyMacCommand}" />
+				<MenuFlyoutItem x:Uid="CopyName"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyNameCommand}" />
+				<MenuFlyoutItem x:Uid="Ip"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyIpCommand}" />
+				<MenuFlyoutItem x:Uid="CopyManufacturer"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyManufacturerCommand}" />
+				<MenuFlyoutItem x:Uid="CopyMACAddress"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.CopyViewModel.CopyMacCommand}" />
 			</MenuFlyoutSubItem>
 
-			<MenuFlyoutItem
-				x:Uid="Rescan"
-				Command="{x:Bind ViewModel.RescanCommand}"
-				IsEnabled="{x:Bind ViewModel.ActionBarViewModel.Scanning, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}" />
+			<MenuFlyoutItem x:Uid="Rescan"
+							Command="{x:Bind ViewModel.RescanCommand}"
+							IsEnabled="{x:Bind ViewModel.ActionBarViewModel.Scanning, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}" />
 
-			<MenuFlyoutItem x:Uid="SaveAs" Command="{x:Bind ViewModel.ContextMenuViewModel.SaveDeviceCommand}">
+			<MenuFlyoutItem x:Uid="SaveAs"
+							Command="{x:Bind ViewModel.ContextMenuViewModel.SaveDeviceCommand}">
 				<MenuFlyoutItem.Icon>
 					<FontIcon Glyph="&#xE792;" />
 				</MenuFlyoutItem.Icon>
@@ -83,28 +93,29 @@
 
 			<MenuFlyoutSeparator />
 
-			<MenuFlyoutItem
-				x:Uid="FavoritesAdd"
-				Command="{x:Bind ViewModel.FavoritesDevicesViewModel.AddToFavoritesCommand}"
-				Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
+			<MenuFlyoutItem x:Uid="FavoritesAdd"
+							Command="{x:Bind ViewModel.FavoritesDevicesViewModel.AddToFavoritesCommand}"
+							Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
 				<MenuFlyoutItem.Icon>
 					<FontIcon Glyph="&#xE728;" />
 				</MenuFlyoutItem.Icon>
 			</MenuFlyoutItem>
 
-			<MenuFlyoutItem
-				x:Uid="FavoritesRemove"
-				Command="{x:Bind ViewModel.FavoritesDevicesViewModel.RemoveFromFavoritesCommand}"
-				Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+			<MenuFlyoutItem x:Uid="FavoritesRemove"
+							Command="{x:Bind ViewModel.FavoritesDevicesViewModel.RemoveFromFavoritesCommand}"
+							Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
 				<MenuFlyoutItem.Icon>
 					<FontIcon Glyph="&#xECC9;" />
 				</MenuFlyoutItem.Icon>
 			</MenuFlyoutItem>
 
-			<MenuFlyoutItem x:Uid="Rename" Command="{x:Bind ViewModel.ContextMenuViewModel.EditNameCommand}" />
-			<MenuFlyoutItem x:Uid="EditComment" Command="{x:Bind ViewModel.ContextMenuViewModel.EditCommentsCommand}" />
+			<MenuFlyoutItem x:Uid="Rename"
+							Command="{x:Bind ViewModel.ContextMenuViewModel.EditNameCommand}" />
+			<MenuFlyoutItem x:Uid="EditComment"
+							Command="{x:Bind ViewModel.ContextMenuViewModel.EditCommentsCommand}" />
 			<MenuFlyoutSubItem x:Uid="Advanced">
-				<MenuFlyoutItem x:Uid="ChangeMAC" Command="{x:Bind ViewModel.ContextMenuViewModel.EditMacCommand}" />
+				<MenuFlyoutItem x:Uid="ChangeMAC"
+								Command="{x:Bind ViewModel.ContextMenuViewModel.EditMacCommand}" />
 			</MenuFlyoutSubItem>
 		</MenuFlyout>
 
@@ -135,16 +146,16 @@
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
-			<Grid Grid.Column="0" Grid.ColumnSpan="{x:Bind ViewModel.ShowDetails, Mode=OneWay, Converter={StaticResource BoolToColumnSpanConverter}}">
+			<Grid Grid.Column="0"
+				  Grid.ColumnSpan="{x:Bind ViewModel.ShowDetails, Mode=OneWay, Converter={StaticResource BoolToColumnSpanConverter}}">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto" />
 					<RowDefinition Height="*" />
 				</Grid.RowDefinitions>
 
-				<Grid
-					Grid.Row="0"
-					Grid.Column="0"
-					Padding="5">
+				<Grid Grid.Row="0"
+					  Grid.Column="0"
+					  Padding="5">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
 						<ColumnDefinition Width="Auto" />
@@ -163,20 +174,19 @@
 									  Tag="Favorites" />
 					</ComboBox>
 
-					<ProgressRing
-						Grid.Column="1"
-						Margin="5,0,5,0"
-						HorizontalAlignment="Left"
-						IsActive="{x:Bind ViewModel.ReportCreating, Mode=OneWay}" />
-					<Button
-						Grid.Column="1"
-						Margin="5,0,0,0"
-						Command="{x:Bind ViewModel.CreateReportCommand}"
-						IsEnabled="{x:Bind ViewModel.GptEnabled, Mode=OneWay}"
-						Style="{StaticResource AccentButtonStyle}"
-						Visibility="{x:Bind ViewModel.ReportCreating, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
+					<ProgressRing Grid.Column="1"
+								  Margin="5,0,5,0"
+								  HorizontalAlignment="Left"
+								  IsActive="{x:Bind ViewModel.ReportCreating, Mode=OneWay}" />
+					<Button Grid.Column="1"
+							Margin="5,0,0,0"
+							Command="{x:Bind ViewModel.CreateReportCommand}"
+							IsEnabled="{x:Bind ViewModel.GptEnabled, Mode=OneWay}"
+							Style="{StaticResource AccentButtonStyle}"
+							Visibility="{x:Bind ViewModel.ReportCreating, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
 						<Button.Content>
-							<FontIcon Grid.Row="0" Glyph="&#xE9F9;" />
+							<FontIcon Grid.Row="0"
+									  Glyph="&#xE9F9;" />
 						</Button.Content>
 
 						<ToolTipService.ToolTip>
@@ -184,15 +194,16 @@
 						</ToolTipService.ToolTip>
 					</Button>
 
-					<Button
-						Grid.Column="2"
-						Margin="5,0,0,0"
-						Command="{x:Bind ViewModel.CancelReportCreatingCommand}"
-						Visibility="{x:Bind ViewModel.ReportCreating, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+					<Button Grid.Column="2"
+							Margin="5,0,0,0"
+							Command="{x:Bind ViewModel.CancelReportCreatingCommand}"
+							Visibility="{x:Bind ViewModel.ReportCreating, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
 						<Button.Content>
 							<StackPanel Orientation="Horizontal">
-								<FontIcon Foreground="DodgerBlue" Glyph="&#xE71A;" />
-								<TextBlock x:Uid="Stop" Margin="5,0,0,0" />
+								<FontIcon Foreground="DodgerBlue"
+										  Glyph="&#xE71A;" />
+								<TextBlock x:Uid="Stop"
+										   Margin="5,0,0,0" />
 							</StackPanel>
 						</Button.Content>
 
@@ -201,13 +212,12 @@
 						</ToolTipService.ToolTip>
 					</Button>
 
-					<Button
-						Grid.Column="3"
-						Margin="5,0,0,0"
-						HorizontalAlignment="Stretch"
-						Command="{x:Bind ViewModel.FavoritesDevicesViewModel.SaveFavoritesCommand, Mode=OneWay}"
-						IsEnabled="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay}"
-						Style="{StaticResource AccentButtonStyle}">
+					<Button Grid.Column="3"
+							Margin="5,0,0,0"
+							HorizontalAlignment="Stretch"
+							Command="{x:Bind ViewModel.FavoritesDevicesViewModel.SaveFavoritesCommand, Mode=OneWay}"
+							IsEnabled="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay}"
+							Style="{StaticResource AccentButtonStyle}">
 						<Button.Content>
 							<FontIcon Glyph="&#xE74E;" />
 						</Button.Content>
@@ -217,12 +227,11 @@
 						</ToolTipService.ToolTip>
 					</Button>
 
-					<Button
-						Grid.Column="4"
-						Height="34"
-						Margin="5,0,0,0"
-						Command="{x:Bind ViewModel.ClearCommand, Mode=OneWay}"
-						IsEnabled="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}">
+					<Button Grid.Column="4"
+							Height="34"
+							Margin="5,0,0,0"
+							Command="{x:Bind ViewModel.ClearCommand, Mode=OneWay}"
+							IsEnabled="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BooleanInvertConverter}}">
 						<Button.Content>
 							<FontIcon Glyph="&#xED62;" />
 						</Button.Content>
@@ -234,33 +243,31 @@
 				</Grid>
 
 				<!--  Devices list  -->
-				<ScrollViewer
-					Grid.Row="1"
-					Grid.Column="0"
-					Padding="5"
-					HorizontalScrollBarVisibility="Auto"
-					VerticalScrollBarVisibility="Disabled">
-					<Grid
-						x:Name="DevicesGrid"
-						AllowDrop="True"
-						Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-						DragOver="DevicesGrid_DragOver"
-						Drop="DevicesGrid_Drop">
-						<controls:DataGrid
-							x:Name="ResultsDataGrid"
-							AutoGenerateColumns="False"
-							CanBeScrollAnchor="True"
-							ContextFlyout="{StaticResource ResultsContextMenu}"
-							ItemsSource="{x:Bind ViewModel.ScannedDevices.FilteredItems, Mode=OneWay}"
-							PreparingCellForEdit="FavoritesDevicesDataGrid_PreparingCellForEdit"
-							ScrollViewer.IsVerticalRailEnabled="True"
-							ScrollViewer.VerticalScrollBarVisibility="Visible"
-							ScrollViewer.VerticalScrollMode="Enabled"
-							SelectedItem="{x:Bind ViewModel.SelectedDevice, Mode=TwoWay}"
-							Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
+				<ScrollViewer Grid.Row="1"
+							  Grid.Column="0"
+							  Padding="5"
+							  HorizontalScrollBarVisibility="Auto"
+							  VerticalScrollBarVisibility="Disabled">
+					<Grid x:Name="DevicesGrid"
+						  AllowDrop="True"
+						  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+						  DragOver="DevicesGrid_DragOver"
+						  Drop="DevicesGrid_Drop">
+						<controls:DataGrid x:Name="ResultsDataGrid"
+										   AutoGenerateColumns="False"
+										   CanBeScrollAnchor="True"
+										   ContextFlyout="{StaticResource ResultsContextMenu}"
+										   ItemsSource="{x:Bind ViewModel.ScannedDevices.FilteredItems, Mode=OneWay}"
+										   PreparingCellForEdit="FavoritesDevicesDataGrid_PreparingCellForEdit"
+										   ScrollViewer.IsVerticalRailEnabled="True"
+										   ScrollViewer.VerticalScrollBarVisibility="Visible"
+										   ScrollViewer.VerticalScrollMode="Enabled"
+										   SelectedItem="{x:Bind ViewModel.SelectedDevice, Mode=TwoWay}"
+										   Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay, Converter={StaticResource BoolToVisibilityInvertConverter}}">
 							<interactivity:Interaction.Behaviors>
 								<core:EventTriggerBehavior EventName="RightTapped">
-									<core:InvokeCommandAction Command="{x:Bind ViewModel.RightTappedCommand}" InputConverter="{StaticResource RightTappedToScannedDeviceConverter}" />
+									<core:InvokeCommandAction Command="{x:Bind ViewModel.RightTappedCommand}"
+															  InputConverter="{StaticResource RightTappedToScannedDeviceConverter}" />
 								</core:EventTriggerBehavior>
 							</interactivity:Interaction.Behaviors>
 
@@ -268,7 +275,8 @@
 								<controls:DataGridTemplateColumn x:Uid="Status">
 									<controls:DataGridTemplateColumn.CellTemplate>
 										<DataTemplate>
-											<FontIcon FontFamily="Segoe MDL2 Assets" Glyph="{Binding Status, Converter={StaticResource DeviceStatusToGlyphConverter}}">
+											<FontIcon FontFamily="Segoe MDL2 Assets"
+													  Glyph="{Binding Status, Converter={StaticResource DeviceStatusToGlyphConverter}}">
 												<ToolTipService.ToolTip>
 													<ToolTip Content="{Binding Status}" />
 												</ToolTipService.ToolTip>
@@ -276,35 +284,36 @@
 										</DataTemplate>
 									</controls:DataGridTemplateColumn.CellTemplate>
 								</controls:DataGridTemplateColumn>
-								<controls:DataGridTextColumn x:Uid="Name" Binding="{Binding Name}" />
-								<controls:DataGridTextColumn x:Uid="IPAddress" Binding="{Binding Ip}" />
-								<controls:DataGridTextColumn x:Uid="Manufacturer" Binding="{Binding Manufacturer}" />
-								<controls:DataGridTextColumn
-									x:Uid="MACAddress"
-									Binding="{Binding MacAddress, Converter={StaticResource MacAddressToStringConverter}}"
-									IsReadOnly="False" />
-								<controls:DataGridTextColumn
-									x:Uid="Comments"
-									Width="*"
-									Binding="{Binding Comments}" />
+								<controls:DataGridTextColumn x:Uid="Name"
+															 Binding="{Binding Name}" />
+								<controls:DataGridTextColumn x:Uid="IPAddress"
+															 Binding="{Binding Ip}" />
+								<controls:DataGridTextColumn x:Uid="Manufacturer"
+															 Binding="{Binding Manufacturer}" />
+								<controls:DataGridTextColumn x:Uid="MACAddress"
+															 Binding="{Binding MacAddress, Converter={StaticResource MacAddressToStringConverter}}"
+															 IsReadOnly="False" />
+								<controls:DataGridTextColumn x:Uid="Comments"
+															 Width="*"
+															 Binding="{Binding Comments}" />
 							</controls:DataGrid.Columns>
 						</controls:DataGrid>
 
-						<controls:DataGrid
-							x:Name="FavoritesDataGrid"
-							AutoGenerateColumns="False"
-							CanBeScrollAnchor="True"
-							ContextFlyout="{StaticResource ResultsContextMenu}"
-							ItemsSource="{x:Bind ViewModel.FavoritesDevicesViewModel.FavoritesDevices.FilteredItems, Mode=OneWay}"
-							PreparingCellForEdit="FavoritesDevicesDataGrid_PreparingCellForEdit"
-							ScrollViewer.IsVerticalRailEnabled="True"
-							ScrollViewer.VerticalScrollBarVisibility="Visible"
-							ScrollViewer.VerticalScrollMode="Enabled"
-							SelectedItem="{x:Bind ViewModel.SelectedDevice, Mode=TwoWay}"
-							Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay}">
+						<controls:DataGrid x:Name="FavoritesDataGrid"
+										   AutoGenerateColumns="False"
+										   CanBeScrollAnchor="True"
+										   ContextFlyout="{StaticResource ResultsContextMenu}"
+										   ItemsSource="{x:Bind ViewModel.FavoritesDevicesViewModel.FavoritesDevices.FilteredItems, Mode=OneWay}"
+										   PreparingCellForEdit="FavoritesDevicesDataGrid_PreparingCellForEdit"
+										   ScrollViewer.IsVerticalRailEnabled="True"
+										   ScrollViewer.VerticalScrollBarVisibility="Visible"
+										   ScrollViewer.VerticalScrollMode="Enabled"
+										   SelectedItem="{x:Bind ViewModel.SelectedDevice, Mode=TwoWay}"
+										   Visibility="{x:Bind ViewModel.FavoritesDevicesViewModel.DisplayFavorites, Mode=OneWay}">
 							<interactivity:Interaction.Behaviors>
 								<core:EventTriggerBehavior EventName="RightTapped">
-									<core:InvokeCommandAction Command="{x:Bind ViewModel.RightTappedCommand}" InputConverter="{StaticResource RightTappedToScannedDeviceConverter}" />
+									<core:InvokeCommandAction Command="{x:Bind ViewModel.RightTappedCommand}"
+															  InputConverter="{StaticResource RightTappedToScannedDeviceConverter}" />
 								</core:EventTriggerBehavior>
 							</interactivity:Interaction.Behaviors>
 
@@ -312,7 +321,8 @@
 								<controls:DataGridTemplateColumn x:Uid="Status">
 									<controls:DataGridTemplateColumn.CellTemplate>
 										<DataTemplate>
-											<FontIcon FontFamily="Segoe MDL2 Assets" Glyph="{Binding Status, Converter={StaticResource DeviceStatusToGlyphConverter}}">
+											<FontIcon FontFamily="Segoe MDL2 Assets"
+													  Glyph="{Binding Status, Converter={StaticResource DeviceStatusToGlyphConverter}}">
 												<ToolTipService.ToolTip>
 													<ToolTip Content="{Binding Status}" />
 												</ToolTipService.ToolTip>
@@ -320,31 +330,32 @@
 										</DataTemplate>
 									</controls:DataGridTemplateColumn.CellTemplate>
 								</controls:DataGridTemplateColumn>
-								<controls:DataGridTextColumn x:Uid="Name" Binding="{Binding Name}" />
-								<controls:DataGridTextColumn x:Uid="IPAddress" Binding="{Binding Ip}" />
-								<controls:DataGridTextColumn x:Uid="Manufacturer" Binding="{Binding Manufacturer}" />
-								<controls:DataGridTextColumn
-									x:Uid="MACAddress"
-									Binding="{Binding MacAddress, Converter={StaticResource MacAddressToStringConverter}}"
-									IsReadOnly="False" />
-								<controls:DataGridTextColumn
-									x:Uid="Comments"
-									Width="*"
-									Binding="{Binding Comments}" />
+								<controls:DataGridTextColumn x:Uid="Name"
+															 Binding="{Binding Name}" />
+								<controls:DataGridTextColumn x:Uid="IPAddress"
+															 Binding="{Binding Ip}" />
+								<controls:DataGridTextColumn x:Uid="Manufacturer"
+															 Binding="{Binding Manufacturer}" />
+								<controls:DataGridTextColumn x:Uid="MACAddress"
+															 Binding="{Binding MacAddress, Converter={StaticResource MacAddressToStringConverter}}"
+															 IsReadOnly="False" />
+								<controls:DataGridTextColumn x:Uid="Comments"
+															 Width="*"
+															 Binding="{Binding Comments}" />
 							</controls:DataGrid.Columns>
 						</controls:DataGrid>
 
-						<Grid x:Name="CustomPrintContainer" Opacity="0" />
+						<Grid x:Name="CustomPrintContainer"
+							  Opacity="0" />
 					</Grid>
 				</ScrollViewer>
 			</Grid>
 
 			<!--  Device details  -->
-			<Frame
-				x:Name="DetailsFrame"
-				Grid.Column="1"
-				Margin="5,0,0,0"
-				Visibility="{x:Bind ViewModel.ShowDetails, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+			<Frame x:Name="DetailsFrame"
+				   Grid.Column="1"
+				   Margin="5,0,0,0"
+				   Visibility="{x:Bind ViewModel.ShowDetails, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 		</Grid>
 
 		<views:ProgressBar Grid.Row="3" />

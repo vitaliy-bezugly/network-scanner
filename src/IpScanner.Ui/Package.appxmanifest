@@ -32,7 +32,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="IpScanner.Ui.App">
       <uap:VisualElements
-        DisplayName="Advanced IP Scanner"
+        DisplayName="Network Scanner"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="IP Scanner is a planned network scanner application for analyzing LAN. The aim is to provide functionality to show all network devices, give access to shared folders, offer remote control of computers (via RDP). The application is intended to be user-friendly and designed to operate as a portable edition."

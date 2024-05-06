@@ -123,30 +123,19 @@
                     <ToolTip Content="Https"/>
                 </ToolTipService.ToolTip>
             </Button>
-            
-            <Button Margin="5,0,5,0"
-                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
-                Command="{x:Bind ViewModel.ExploreWithFtpCommand}">
-                <StackPanel Orientation="Horizontal">
-                    <FontIcon Glyph="&#xEC50;"/>
-                </StackPanel>
-                <ToolTipService.ToolTip>
-                    <ToolTip Content="Ftp"/>
-                </ToolTipService.ToolTip>
-            </Button>
-            
-            <Button Margin="5,0,5,0"
-                IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
-                Command="{x:Bind ViewModel.ExploreWithRdpCommand}">
-                <StackPanel Orientation="Horizontal">
-                    <FontIcon Glyph="&#xE836;"/>
-                </StackPanel>
-                <ToolTipService.ToolTip>
-                    <ToolTip Content="Rdp"/>
-                </ToolTipService.ToolTip>
-            </Button>
 
-            <Button Margin="5,0,5,0"
+			<Button Margin="5,0,5,0"
+					IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
+					Command="{x:Bind ViewModel.ExploreWithFtpCommand}">
+				<StackPanel Orientation="Horizontal">
+					<FontIcon Glyph="&#xEC50;" />
+				</StackPanel>
+				<ToolTipService.ToolTip>
+					<ToolTip Content="Ftp" />
+				</ToolTipService.ToolTip>
+			</Button>
+
+			<Button Margin="5,0,5,0"
                 IsEnabled="{x:Bind ViewModel.SelectedDevice, Mode=OneWay, Converter={StaticResource NullToBoolConverter}}"
                 Command="{x:Bind ViewModel.WakeOnLanCommand}">
                 <StackPanel Orientation="Horizontal">
