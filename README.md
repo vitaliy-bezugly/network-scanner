@@ -1,6 +1,6 @@
 ﻿# IP Scanner
 
-IP Scanner is a planned network scanner application for analyzing LAN. The aim is to provide functionality to show all network devices, give access to shared folders, offer remote control of computers (via RDP). The application is intended to be user-friendly and designed to operate as a portable edition.
+IP Scanner is a scheduled network scanning program for local network analysis. The goal is to provide functionality to display all devices of a certain network (by the specified range of ip addresses, local or global network), to provide access to shared folders, to offer remote control of computers (via RDP). The program is intended for user convenience and is designed to work as a portable version.
 
 ## How to Launch
 
